@@ -1,0 +1,10 @@
+image:
+  name: wojciech11/zero-kube-demo
+  tag: latest
+
+app:
+  name: my-app
+
+replicaCount: 1
+
+logLevel: DEBUG

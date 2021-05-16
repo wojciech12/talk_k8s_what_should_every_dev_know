@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: wojciech11/zero-kube-demo:1.0.0
+        env:
+        - name: LOG_LEVEL
+          value: debug
+        envFrom:
+        - configMapRef:
+            name: env-configmap # for simplicity, we could call configMap "my-app"
+        - secretRef:
+            name: env-secrets # for simplicity, we could call secret "my-app"
+        ports:
+        - containerPort: 8080
