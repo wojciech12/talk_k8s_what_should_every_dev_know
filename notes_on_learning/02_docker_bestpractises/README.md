@@ -36,7 +36,7 @@
    vs
 
    <pre><code>RUN apt-get -y update
-      RUN apt-get install -y python
+   RUN apt-get install -y python
    </code></pre>
 
    Notice: every <i>RUN</i>, <i>COPY</i>, <i>ADD</i> create a layer.
@@ -74,7 +74,7 @@
 14. Others:
 
     - rebuild your base images / pull new ones
-    - security scanner
+    - security scanner, for example, [trivy](https://github.com/aquasecurity/trivy) 
     - caching, reusing previous docker images in CI/CD
     
 ## References
